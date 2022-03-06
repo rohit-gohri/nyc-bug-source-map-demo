@@ -1,0 +1,21 @@
+{
+  "extends": "@istanbuljs/nyc-config-typescript",
+  "extension": [
+    ".ts",
+    ".js"
+  ],
+  "include": [
+    "dist/**/*",
+    "src/**/*"
+  ],
+  "exclude": [
+    "**/*.d.ts"
+  ],
+  "all": true,
+  "reporters": [
+    "lcov"
+  ],
+  "cache": false,
+  "source-map": true,
+  "exclude-after-remap": false
+}

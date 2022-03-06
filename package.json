@@ -1,4 +1,16 @@
 {
   "name": "nyc-bug-demo",
-  "packageManager": "yarn@3.2.0"
+  "packageManager": "yarn@3.2.0",
+  "scripts": {
+    "build": "tsc",
+    "coverage": "nyc --source-map --require source-map-support/register node dist/index.js"
+  },
+  "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@tsconfig/node16": "^1.0.2",
+    "@types/node": "^17.0.21",
+    "nyc": "^15.1.0",
+    "source-map-support": "^0.5.21",
+    "typescript": "^4.6.2"
+  }
 }
