@@ -5,14 +5,6 @@ function add(a: number, b: number): number {
     return a + b;
 }
 
-process.on('exit', () => {
-    console.log({
-        coverage: JSON.stringify((global as any).__coverage__, null, 2),
-    });
-    process.exit(0);
-});
-
-
 async function main() {
     console.log(add(2, 5));
     
@@ -24,4 +16,15 @@ async function main() {
     console.log(add(2));
 }
 
-main();
+main()
+.catch(() => {})
+.finally(async () => {
+    await new Promise(resolve => {
+        setTimeout(resolve, 2000);
+    });
+
+    console.log({
+        coverage: JSON.stringify(await (global as any).__getCoverage__?.(), null, 2),
+    });
+    process.exit(1);
+});

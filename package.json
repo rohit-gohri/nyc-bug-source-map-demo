@@ -3,6 +3,7 @@
   "packageManager": "yarn@3.2.0",
   "scripts": {
     "build": "tsc",
+    "v8-coverage": "E2E_COVERAGE=true node -r ./src/v8Coverage.js dist/index.js",
     "coverage": "nyc --source-map --require source-map-support/register node dist/index.js"
   },
   "devDependencies": {
@@ -12,5 +13,9 @@
     "nyc": "^15.1.0",
     "source-map-support": "^0.5.21",
     "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "istanbul-lib-coverage": "^3.2.0",
+    "v8-to-istanbul": "^8.1.1"
   }
 }
